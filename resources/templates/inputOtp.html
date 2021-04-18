@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}"></title>
+</head>
+<body >
+	<section class="ban d-flex justify-content-center align-items-center">
+		<div class="container">
+			<div class="row justify-content-center align-items-center">		
+				<div class="col-sm-4 col-md-8 col-md-offset-4 text-center" >
+					<div class="account-wall ">
+						<h3 class="text-secondary my-4">Enter OTP</h3>
+							<div th:if="${success}">
+								<span class="alert text-center my-3" role="alert" th:classappend="${success.type}" 
+								th:text="${success.content}">
+								</span>
+							</div>
+							<div th:if="${match}">
+								<span class="alert text-center my-3" role="alert" th:classappend="${match.type}" 
+								th:text="${match.content}">
+								</span>
+							</div>
+						<form class="form-signin " th:action="@{/verifyOtp}" action="#" method="post">
+						<div>
+							<input type="password" class="form-control my-3" placeholder="Enter otp" name="otp"
+								required autofocus> 
+						</div>
+							<div  class="text-center ">
+									<button class="btn btn-lg btn-info btn-block mt-2" type="submit">
+								Verify OTP</button>
+							</div>						
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</body>
+</html>

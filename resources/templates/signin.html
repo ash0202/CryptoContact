@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+    <body>	
+    	<section>
+		<div class="container">
+			<div class="row justify-content-center align-items-center rem1">
+		
+				<div class="col-sm-6 col-md-4 col-md-offset-4 text-center" >
+				
+					<div class="">
+					<div class="account-wall ">
+						<img class="profile-img"
+							src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+							alt="">
+						<form class="form-signin text-center" th:action="@{/signin}" action="#" method="post">
+							<h2>Login</h2>
+								<div th:if="${param.error}" class="alert alert-danger text-center">Invalid username or password</div>
+								<div th:if="${param.logout}" class="alert alert-success text-center">Logout successfully</div>
+								<div th:if="${passwordsuccess}" class="alert alert-success text-center">
+									<span th:text="${passwordsuccess.content}"></span>
+								</div>
+						<div>
+							<input type="text" class="form-control" placeholder="Email" name="username"
+								required autofocus> 
+						</div>
+						<div>
+							<input type="password" class="form-control" placeholder="Password" name="password" required>
+						</div>
+							<div  class="text-center ">
+									<button class="btn btn-lg btn-primary btn-block rem" type="submit">
+								Sign in</button>
+							</div>	
+								<div class="container">
+									<a th:href="@{/forgotpass}">Forgot password</a>
+								</div>					
+							<!-- <div class="rem">														
+								<label class="checkbox pull-left text-right"> <input type="checkbox"
+								value="remember-me"> Remember Me</label>							
+							</div> -->
+							<div>
+								<a href="#" th:href="@{/signup}" class="text-center new-account">New to here?Create an account </a>
+							</div>
+						</form>
+					</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+    	
+  </body>
+</html>

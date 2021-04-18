@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		th:replace="/user/base::layout(~{::section})"
+>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Dashboard</title>
+</head>
+<body>
+	<section>
+	
+	<div class="card mr-3 ml-3" th:if="${contact}">
+	<h1 class="text-center">Contact details of <span th:text="${contact.name}" style="color: #009688;"></span></h1>
+		<div class="card-body">
+			<div class="container text-center">
+				
+				<img th:src="@{'/image/'+${contact.imgURL}}" alt="User" class="my_profile_show">
+				<h3 class="mt-3"> <span th:text="${contact.name}"></span><span th:text="'('+${contact.nickname}+')'"></span></h3>
+					<table class="table table-bordered border-primary table-hover text-center">
+						<thead>
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col">Name</th>
+								<th scope="col">Number</th>
+								<th scope="col">Email</th>
+								<th scope="col">Work</th>								
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row" th:text="'SCM2021USER'+${contact.cid}"></th>
+								<td th:text="${contact.name}"></td>
+								<td th:text="${contact.phone}"></td>
+								<td th:text="${contact.email}"></td>
+								
+								<td th:text="${contact.work}"></td>
+								
+							</tr>
+							
+						</tbody>
+					</table>
+					<div class="description">
+					<h2>Contact description</h2>
+						<th:block th:text="${contact.description}"></th:block>
+					</div>
+					<div class="container mt-4">
+						<a class="btn btn-danger btn-small" th:onclick="|deleteContact(${contact.cid})|"><i class="fas fa-trash-alt"></i> Delete</a>
+						<form action="#" th:action="@{'/user/updateContact/'+${contact.cid}}" method="post">
+								<button type="submit" class="btn btn-primary btn-small mt-2"><i class="fas fa-user-edit"></i> Update</button>
+								</form>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div >
+		<h1 class="text-center bg-danger text-white" th:unless="${contact}">You don't have permission to see this contact</h1>
+	</div>
+	<script type="text/javascript">
+			$(document).ready(()=>{
+				$(".item").removeClass("active");
+				$("#view-link").addClass("active");
+			});
+		</script>
+	</section>
+</body>
+</html>

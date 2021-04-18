@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		th:replace="/user/base::layout(~{::section})"
+>
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}"></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<section>
+	<div class="container ">
+	<div th:if="${session.equal}" class="alert text-center" th:classappend="${session.equal.type}" role="alert">
+				<span th:text="${session.equal.content}"></span>
+	</div>
+	<div class="alert alert-danger text-center" th:if="${confirm}">
+	<span th:text="${confirm.content}"></span>
+	</div>
+		<div class="row justify-content-center align-items-center">
+			<div class="col-sm-6 col-md-4 col-md-offset-4 " >
+				<div class="">
+				<h1 class="text-center mt-2">Change password</h1>
+					<div class="card-body justify-content-center align-items-center">					
+						<form th:action="@{/user/changePassword}" method="post">
+							<div class="form-group">
+								<input type="password" placeholder="Enter old password" class="form-control my-2" name="oldPassword">
+							</div>
+							<div class="form-group">
+								<input type="password"placeholder="Enter new password" class="form-control my-2" name="newPassword">
+							</div>
+							<div class="form-group">
+								<input type="password"placeholder="Confirm new password" class="form-control my-2" name="confirm">
+							</div>
+								<div class="con text-center">
+									<button class="btn btn-primary btn-success m-2" type="submit">Update</button>
+									<button class="btn btn-primary btn-warning" type="reset">Reset </button>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script type="text/javascript">
+			$(document).ready(()=>{
+				$(".item").removeClass("active");
+				$("#settings-link").addClass("active");
+			});
+		</script>
+	</section>
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		th:replace="/user/base::layout(~{::section})"
+>
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}"></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<section>
+	<div class="container ">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-sm-6 col-md-6 col-md-offset-4 text-center " >
+				<div class="account-wall mt-1">
+				<h1 class="text-center mt-3">Donate Us</h1>
+					<div class="card-body justify-content-center align-items-center">					
+					
+							<div class="form-group">
+								<input id="amount" type="number" placeholder="Enter the amount you want to contribute" class="form-control my-2" name="amount">
+							</div>							
+								<div class="con text-center">
+									<button onclick="paymentStart()" class="btn btn-primary btn-success m-3" type="submit">Donate</button>									
+								</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	
+</body>
+</html>

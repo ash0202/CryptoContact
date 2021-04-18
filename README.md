@@ -1,2 +1,2 @@
 # CryptoContact
- Save your contact in encypted from
+ Save your contact in encrypted from

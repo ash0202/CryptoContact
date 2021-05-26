@@ -1,6 +1,6 @@
 # CryptoContact
  This application is built to provide our user an experience of our excellent UI design and storing and accessing their contacts in a very secured way. Security is the main reason that makes this website different from others.
-The data that our users store are in encrypted format.And the data can be  accessed or decrypt  by the user only cause all the data are stored in the database are in encrypted format using the key which is provided by the user and the main thing is, the key used to encrypt and decrypt data is not stored in our database and the secret key is only accessable to the user itself.So all the data that are stored in the database are in encrypted format.
+The data that our users store are in encrypted format.And the data can be  accessed or decrypt  by the user only cause all the data are stored in the database are in encrypted format using the key which is provided by the user and the main thing is, the key used to encrypt and decrypt data is not stored in our database and the secret key is only accessable to the user itself.
 And if the user enters wrong secret key then the user can't access any data that he/she has stored.So the user can only access data if he/she has the secret key which acts as the two layer security to the user's account
 
 <h1>Home page</h1>
